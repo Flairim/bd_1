@@ -1,0 +1,18 @@
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: postgres_online_store1
+    container_name: online_store_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: online_store
+    ports:
+      - "5432:5432" 
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
